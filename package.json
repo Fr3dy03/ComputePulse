@@ -1,0 +1,24 @@
+{
+  "name": "computepulse",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": ["apps/api", "apps/web"],
+  "scripts": {
+    "dev": "concurrently -n api,web -c cyan,blue \"npm run dev -w @computepulse/api\" \"npm run dev -w @computepulse/web\"",
+    "dev:api": "npm run dev -w @computepulse/api",
+    "dev:web": "npm run dev -w @computepulse/web",
+    "build": "npm run build -w @computepulse/api && npm run build -w @computepulse/web",
+    "start": "concurrently -n api,web -c cyan,blue \"npm run start -w @computepulse/api\" \"npm run start -w @computepulse/web\"",
+    "collect": "npm run collect -w @computepulse/api",
+    "seed": "npm run seed -w @computepulse/api",
+    "db:seed": "npm run seed -w @computepulse/api",
+    "typecheck": "npm run typecheck -w @computepulse/api && tsc -p apps/web/tsconfig.json --noEmit",
+    "test": "npm run test -w @computepulse/api",
+    "test:contracts": "forge test",
+    "lint": "npm run typecheck"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "engines": { "node": ">=20" }
+}

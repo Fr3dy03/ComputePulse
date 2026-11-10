@@ -1,0 +1,24 @@
+node_modules
+.next
+dist
+.env*
+!.env.example
+.data
+*.log
+*.tsbuildinfo
+coverage
+playwright-report
+test-results
+.DS_Store
+
+# Foundry build and deployment output
+contracts/out
+contracts/cache
+contracts/lib
+broadcast
+cache
+
+# Local database and editor files
+apps/api/.data
+.vscode
+.idea
