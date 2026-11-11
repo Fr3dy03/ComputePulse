@@ -1,9 +1,12 @@
+import path from 'node:path';
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
-  outputFileTracingRoot: __dirname,
+  // In this npm workspace, dependencies are hoisted to the repository root.
+  // Tracing from apps/web alone would omit them from a traced deployment.
+  outputFileTracingRoot: path.join(__dirname, '../..'),
   async headers() {
     return [
       {

@@ -8,6 +8,7 @@
     "dev:api": "npm run dev -w @computepulse/api",
     "dev:web": "npm run dev -w @computepulse/web",
     "build": "npm run build -w @computepulse/api && npm run build -w @computepulse/web",
+    "vercel-build": "npm run build -w @computepulse/web",
     "start": "concurrently -n api,web -c cyan,blue \"npm run start -w @computepulse/api\" \"npm run start -w @computepulse/web\"",
     "collect": "npm run collect -w @computepulse/api",
     "seed": "npm run seed -w @computepulse/api",

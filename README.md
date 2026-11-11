@@ -78,6 +78,14 @@ The first collection fetches large Flux/Akash lists and can take a few seconds. 
 | `npm run test:contracts` | Foundry contract tests |
 | `npm run typecheck` | TypeScript checks |
 
+## Deploy on Vercel
+
+The repository includes a root `vercel.json` that builds only `apps/web` from the npm workspace. Import the repo at [vercel.com/new](https://vercel.com/new), leave the root directory at the repository root, and deploy.
+
+Vercel hosts the Next.js site. For live provider data, host the Fastify API and PostgreSQL separately and set `API_URL` and `NEXT_PUBLIC_API_URL` in the Vercel project. Without those variables the marketing site still renders and the app shows its explicit API-unavailable state. Do not run the long-lived collector as a Vercel Function.
+
+Full instructions, environment variables, CORS guidance and troubleshooting: [`docs/VERCEL.md`](docs/VERCEL.md).
+
 ## Architecture
 
 ```text
@@ -123,6 +131,7 @@ Required evidence states are visible in the UI:
 | [`docs/DATA_FRESHNESS.md`](docs/DATA_FRESHNESS.md) | Freshness rules, stale detection, gaps, retention |
 | [`docs/INTEGRATION_LIMITATIONS.md`](docs/INTEGRATION_LIMITATIONS.md) | Honest capability boundaries and unimplemented integrations |
 | [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md) | PostgreSQL, process commands, reverse proxy, contract deployment |
+| [`docs/VERCEL.md`](docs/VERCEL.md) | Vercel import, environment variables, API hosting and limitations |
 
 The marketing documentation page links to a static copy under `apps/web/public/docs`. Update that copy when the source documents change.
 
